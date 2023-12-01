@@ -94,15 +94,15 @@ public class PermissionsMatrixGenerator {
         Permissions pts8 = new Permissions(false,false,false);
         Permissions pts9 = new Permissions(false,false,false);
 
-        technicalSupport.add(ppc1);
-        technicalSupport.add(ppc2);
-        technicalSupport.add(ppc3);
-        technicalSupport.add(ppc4);
-        technicalSupport.add(ppc5);
-        technicalSupport.add(ppc6);
-        technicalSupport.add(ppc7);
-        technicalSupport.add(ppc8);
-        technicalSupport.add(ppc9);
+        technicalSupport.add(pts1);
+        technicalSupport.add(pts2);
+        technicalSupport.add(pts3);
+        technicalSupport.add(pts4);
+        technicalSupport.add(pts5);
+        technicalSupport.add(pts6);
+        technicalSupport.add(pts7);
+        technicalSupport.add(pts8);
+        technicalSupport.add(pts9);
 
         permissionsList.add(technicalSupport);
 
