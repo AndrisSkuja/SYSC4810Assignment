@@ -6,11 +6,15 @@ public class UIController {
     private NewPasswordController newPasswordController;
     private User activeUser;
     private LoginController loginController;
+    private PermissionsMatrixGenerator permissionsMatrixGenerator;
 
 
     public UIController() throws IOException {
         newPasswordController = new NewPasswordController();
         loginController = new LoginController();
+        permissionsMatrixGenerator = new PermissionsMatrixGenerator();
+        permissionsMatrixGenerator.generate();
+        activeUser = new User();
     }
     public void UI() throws IOException {
         Scanner myObj = new Scanner(System.in);
@@ -20,9 +24,11 @@ public class UIController {
             String input = myObj.nextLine();
             if(input.equals("1")){
                 login();
+                exit=true;
             }
             else if(input.equals("2")){
                 newUserUI();
+                //exit=true;
             }
             else {
                 System.out.println("not a valid input. press 9 to exit or anything else to try again");
@@ -112,6 +118,8 @@ public class UIController {
                 input = myObj.nextLine();
                 if(loginController.passCheck(input,userCheck)){
                     System.out.println("password accepted, welcome");
+                    this.loggedInUI(userCheck);
+                    exit = true;
                 }
                 else {
                     System.out.println("Password not recognized");
@@ -126,7 +134,54 @@ public class UIController {
         }while(!exit);
     }
 
-    public void loggedInUI(){
+    public void loggedInUI(String line){
+        activeUser.parse(line);
+        System.out.println("welcome to the system "+activeUser.getUserName());
+        System.out.println("your role is: "+this.parseRole(activeUser.getRole()));
+        System.out.println("This role grants you access to the following:");
+        System.out.println(permissionsMatrixGenerator.listRights(activeUser.getRole()));
+    }
 
+    public String parseRole(int id){
+        switch (id) {
+            case 1000 -> { //client
+                return "client";
+            }
+            case 1001 -> //premClient
+            {
+                return "Premium Client";
+            }
+            case 1002 -> //employee
+            {
+                return "Employee";
+            }
+            case 1003 -> //tech
+            {
+                return "Technical Support";
+            }
+            case 1004 -> //financial advisor
+            {
+                return "Financial Advisor";
+            }
+            case 1005 -> //financial planner
+            {
+                return "Financial Planner";
+            }
+            case 1006 -> //investment analyst
+            {
+                return "Investment Analyst";
+            }
+            case 1007 -> //teller
+            {
+                return "Teller";
+            }
+            case 1009 -> //compliance officer
+            {
+                return "Compliance Officer";
+            }
+            default -> {
+                return "ERROR: ROLE NOT FOUND";
+            }
+        }
     }
 }

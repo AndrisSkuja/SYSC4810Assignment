@@ -1,5 +1,7 @@
 public class Permissions {
 
+    private String object;
+
     private boolean read;
     private boolean write;
     private boolean execute;
@@ -10,7 +12,8 @@ public class Permissions {
         execute = false;
     }
 
-    public Permissions(boolean r, boolean w, boolean x){
+    public Permissions(String ob, boolean r, boolean w, boolean x){
+        object = ob;
         read = r;
         write = w;
         execute = x;
@@ -20,24 +23,28 @@ public class Permissions {
         return read;
     }
 
-    public void setRead(boolean read) {
-        this.read = read;
-    }
+//    public void setRead(boolean read) {
+//        this.read = read;
+//    }
 
     public boolean isWrite() {
         return write;
     }
 
-    public void setWrite(boolean write) {
-        this.write = write;
-    }
+//    public void setWrite(boolean write) {
+//        this.write = write;
+//    }
 
     public boolean isExecute() {
         return execute;
     }
 
-    public void setExecute(boolean execute) {
-        this.execute = execute;
+//    public void setExecute(boolean execute) {
+//        this.execute = execute;
+//    }
+
+    public String getObject() {
+        return object;
     }
 
     @Override
