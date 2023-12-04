@@ -1,3 +1,4 @@
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class PermissionsMatrixGenerator {
@@ -258,6 +259,13 @@ public class PermissionsMatrixGenerator {
             case 1009 -> //compliance officer
                     index = 8;
             default -> {
+            }
+        }
+
+        if(index == 7){
+            if(!(LocalTime.now().isAfter(LocalTime.of(9,0,0))&&LocalTime.now().isBefore(LocalTime.of(17,0,0)))){
+                rights.append("A Teller cannot access the system outside of business hours");
+                return rights;
             }
         }
 

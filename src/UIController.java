@@ -128,7 +128,7 @@ public class UIController {
             else {
                 System.out.println("Unable to find username, press 1 to try again press else to exit");
                 input = myObj.nextLine();
-                if(input.equals("1"))
+                if(!input.equals("1"))
                     exit=true;
             }
         }while(!exit);
