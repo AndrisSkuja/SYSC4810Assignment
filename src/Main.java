@@ -51,6 +51,9 @@ public class Main {
         UIController myUI = new UIController();
         myUI.UI();
 
+        //String g = "123456789999";
+        //System.out.println(g.length());
+
         /*
 
         String password = "test123";

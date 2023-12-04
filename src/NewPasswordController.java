@@ -40,6 +40,9 @@ public class NewPasswordController {
         if(!m.find()){
             return false;
         }
+        if(inputpassword.length()>12 || inputpassword.length()<8){
+            return false;
+        }
         if(inputpassword.contains(inputUser)){
             return false;
         }
